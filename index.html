@@ -1,180 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vyas Music Academy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vyas Music Academy — Bringing Music to Life</title>
+  <meta name="description" content="Vyas Music Academy — Online & 1-on-1 music lessons for Guitar, Piano, Violin, Drums and Sangeetham. Book a free demo." />
+  <link rel="icon" href="https://raw.githubusercontent.com/yourusername/vyas-music-academy/main/logo.png" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0e0e0e;
-      color: #ffffff;
-      overflow-x: hidden;
-      position: relative;
+    :root{
+      --bg:#fffaf7; /* very light cream */
+      --gold:#c9a66b; /* light gold */
+      --silver:#cfcfcf; /* light silver */
+      --deep:#0f1724; /* text dark */
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --max:1100px;
     }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:var(--deep);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-    /* Animated musical notes background */
-    .notes {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-    .note {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(255, 255, 255, 0.1);
-      animation: floatNotes 10s linear infinite;
-    }
-    @keyframes floatNotes {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
+    /* Top bar */
+    .topbar{background:linear-gradient(90deg,var(--gold),#f3e7c9);padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--gold),#f0d9a4);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--deep)}
+    .brand h1{font-size:18px;margin:0}
+    .cta-strip{display:flex;gap:12px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--deep),#333);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-ghost{border:2px solid rgba(15,23,36,0.08);padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--deep);background:transparent}
 
-    header {
-      background: linear-gradient(90deg, #ff5f6d, #ffc371);
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    .cta {
-      background-color: #000;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .cta:hover {
-      background-color: #222;
-      transform: scale(1.05);
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(180deg, #1e1e1e, #0e0e0e);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      color: #ffc371;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-top: 1rem;
-    }
-    .instruments {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .instrument {
-      background: #1e1e1e;
-      border-radius: 20px;
-      padding: 2rem;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
-    }
-    .instrument:hover {
-      transform: scale(1.05);
-    }
-    .instrument img {
-      width: 100px;
-      height: 100px;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    footer {
-      background-color: #111;
-      padding: 2rem;
-      text-align: center;
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-    .socials a {
-      color: #ffc371;
-      margin: 0 10px;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-    @media(max-width:768px){
-      .hero h2{font-size:2rem;}
-      .instruments{flex-direction:column;align-items:center;}
+    /* NAV */
+    nav{display:flex;gap:16px;align-items:center}
+    nav a{font-weight:600;color:var(--deep);text-decoration:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:48px 0}
+    .hero h2{font-size:34px;margin:0;color:var(--deep);line-height:1.02}
+    .lead{color:var(--muted);margin-top:12px}
+    .hero .quick{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+
+    /* card */
+    .card{background:linear-gradient(180deg,#fff,#fbf9f5);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(15,23,36,0.06);border:1px solid rgba(0,0,0,0.04)}
+
+    /* instruments */
+    .instrument-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
+    .instrument{display:flex;gap:12px;align-items:center}
+    .instrument img{width:84px;height:84px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(15,23,36,0.06)}
+    .instrument h4{margin:0}
+    .instrument p{margin:0;color:var(--muted);font-size:14px}
+
+    /* features */
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .feature{background:linear-gradient(180deg,rgba(201,166,107,0.12),rgba(207,207,207,0.04));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--deep)}
+
+    /* Courses grid */
+    .courses{padding:40px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .course-card{background:linear-gradient(180deg,#fff,#fcfbf8);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.04)}
+    .course-card h3{margin-top:0}
+    .course-card ul{margin:8px 0 0 18px;color:var(--muted)}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    /* testimonials */
+    .testimonials{padding:36px 0}
+    .t-list{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+    .t{min-width:250px;background:linear-gradient(180deg,#fff,#fbfbfb);padding:14px;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+
+    /* contact */
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px;padding:36px 0}
+    form label{display:block;margin-bottom:6px;font-weight:700}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,36,0.06);margin-bottom:12px}
+    .muted{color:var(--muted)}
+
+    footer{border-top:1px solid rgba(15,23,36,0.04);padding:24px 0;color:var(--muted)}
+
+    /* subtle animated background waves */
+    .wave-bg{position:absolute;left:50%;top:0;transform:translateX(-50%);width:1200px;height:480px;pointer-events:none;opacity:0.07}
+    .note-anim{position:absolute;right:20px;bottom:20px;opacity:0.06;font-size:80px}
+
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .instrument-list{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-  <!-- Animated musical notes -->
-  <div class="notes">
-    <div class="note" style="left:5%; animation-delay:0s;">🎵</div>
-    <div class="note" style="left:20%; animation-delay:2s;">🎶</div>
-    <div class="note" style="left:35%; animation-delay:4s;">🎼</div>
-    <div class="note" style="left:55%; animation-delay:1s;">🎵</div>
-    <div class="note" style="left:75%; animation-delay:3s;">🎶</div>
-    <div class="note" style="left:90%; animation-delay:5s;">🎼</div>
-  </div>
+  <!-- decorative wave SVG (gold/silver subtle) -->
+  <svg class="wave-bg" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0%" stop-color="#c9a66b" />
+        <stop offset="100%" stop-color="#d6c9a9" />
+      </linearGradient>
+      <linearGradient id="g2" x1="0" x2="1">
+        <stop offset="0%" stop-color="#cfcfcf" />
+        <stop offset="100%" stop-color="#f2f2f2" />
+      </linearGradient>
+    </defs>
+    <g opacity="0.8">
+      <path d="M0,160 C240,220 480,100 720,160 C960,220 1200,120 1200,120 L1200,480 L0,480 Z" fill="url(#g1)"></path>
+      <path d="M0,220 C240,280 480,160 720,220 C960,280 1200,180 1200,180 L1200,480 L0,480 Z" fill="url(#g2)" opacity="0.7"></path>
+    </g>
+  </svg>
 
-  <header>
-    <h1>Vyas Music Academy</h1>
-    <a href="tel:8328662413" class="cta">Call Now 🎵</a>
+  <header class="topbar">
+    <div class="container wrap">
+      <div class="brand">
+        <div class="logo">VM</div>
+        <div>
+          <h1>Vyas Music Academy</h1>
+          <div class="muted">Online & 1-on-1 lessons • Guitar • Piano • Violin • Drums • Sangeetham</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px">
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#courses">Courses</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="cta-strip">
+          <a class="btn" href="https://wa.me/918328662413" target="_blank">Book Free Demo</a>
+          <a class="btn-ghost" href="tel:8328662413">Call: 8328662413</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Learn Music from the Best!</h2>
-    <p>Join 1-on-1 online classes in Guitar, Keyboard, Drums, and Sangeetham — guided by expert instructors who bring rhythm to your fingertips!</p>
-    <div class="instruments">
-      <div class="instrument">
-        <img src="https://cdn-icons-png.flaticon.com/512/5826/5826914.png" alt="Guitar" />
-        <h3>Guitar</h3>
-        <p>Master chords, melodies, and rhythm with personalized guitar sessions.</p>
-      </div>
-      <div class="instrument">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046275.png" alt="Keyboard" />
-        <h3>Keyboard</h3>
-        <p>Explore the magic of harmony and melody through modern keyboard lessons.</p>
-      </div>
-      <div class="instrument">
-        <img src="https://cdn-icons-png.flaticon.com/512/2436/2436836.png" alt="Drums" />
-        <h3>Drums</h3>
-        <p>Build your tempo and power with our energetic drumming classes.</p>
-      </div>
-    </div>
-  </section>
+  <main class="container" id="home">
+    <section class="hero">
+      <div>
+        <h2>Bringing Music to Life — Learn From the Best at Vyas Music Academy</h2>
+        <p class="lead">Professional 1-on-1 lessons in Guitar, Piano, Violin, Drums and Sangeetham. Tailored lesson plans, recorded sessions, performance coaching and flexible schedules.</p>
 
-  <footer>
-    <p>📞 Contact us: <a href="tel:8328662413">8328662413</a> | 📧 <a href="mailto:vyas.musicacademy@gmail.com">vyas.musicacademy@gmail.com</a></p>
-    <div class="socials">
-      <a href="https://www.instagram.com/vyas.music_/" target="_blank">Instagram</a>
+        <div class="quick">
+          <div class="feature">1-on-1 Live Lessons</div>
+          <div class="feature">Recorded Sessions</div>
+          <div class="feature">Performance & Recital Prep</div>
+          <div class="feature">Flexible Timings</div>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;align-items:center">
+          <a class="btn" href="https://wa.me/918328662413" target="_blank">Book Free Demo</a>
+          <a class="btn-ghost" href="#contact">Contact Us</a>
+        </div>
+
+        <div style="margin-top:22px">
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="instructor" style="width:86px;height:86px;border-radius:10px;object-fit:cover">
+              <div>
+                <div style="font-weight:800">Certified Tutors • Personal Mentorship</div>
+                <div class="muted">Years of stage & teaching experience. Goal-focused learning for every student.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div style="text-align:center;padding-bottom:6px">
+            <div style="font-weight:800;font-size:18px">Courses</div>
+            <div class="muted">Choose your instrument</div>
+          </div>
+
+          <div class="instrument-list" style="margin-top:12px">
+            <div class="instrument">
+              <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="guitar">
+              <div>
+                <h4>Guitar</h4>
+                <p class="muted">Chords, technique, songplay & stage prep.</p>
+              </div>
+            </div>
+
+            <div class="instrument">
+              <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="piano">
+              <div>
+                <h4>Piano</h4>
+                <p class="muted">Harmony, reading, improvisation.</p>
+              </div>
+            </div>
+
+            <div class="instrument">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="violin">
+              <div>
+                <h4>Violin</h4>
+                <p class="muted">Technique, bowing, classical & modern styles.</p>
+              </div>
+            </div>
+
+            <div class="instrument">
+              <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="drums">
+              <div>
+                <h4>Drums</h4>
+                <p class="muted">Rudiments, groove, performance coaching.</p>
+              </div>
+            </div>
+
+            <div class="instrument">
+              <img src="https://images.unsplash.com/photo-1514851932350-13f2f5c11f12?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="sangeetham">
+              <div>
+                <h4>Sangeetham</h4>
+                <p class="muted">Voice culture, breathwork, and classical training.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="courses">
+      <h2 style="text-align:center;font-family:Inter, sans-serif">Our Courses & What You Learn</h2>
+      <div style="margin-top:18px" class="grid">
+        <div class="course-card">
+          <h3>Guitar</h3>
+          <ul>
+            <li>Beginner to advanced syllabus</li>
+            <li>Technique, rhythm, fingerstyle & chords</li>
+            <li>Song practice & stage preparation</li>
+          </ul>
+        </div>
+        <div class="course-card">
+          <h3>Piano</h3>
+          <ul>
+            <li>Reading notation & harmony</li>
+            <li>Scales, arpeggios & improvisation</li>
+            <li>Accompaniment and studio tips</li>
+          </ul>
+        </div>
+        <div class="course-card">
+          <h3>Violin</h3>
+          <ul>
+            <li>Bowing technique & posture</li>
+            <li>Classical phrasing & improvisation</li>
+            <li>Recital coaching</li>
+          </ul>
+        </div>
+        <div class="course-card">
+          <h3>Drums</h3>
+          <ul>
+            <li>Rudiments & limb independence</li>
+            <li>Groove building & fills</li>
+            <li>Playing with tracks & live performance</li>
+          </ul>
+        </div>
+        <div class="course-card">
+          <h3>Sangeetham (Vocal)</h3>
+          <ul>
+            <li>Voice exercises & breath control</li>
+            <li>Gamaka practice & expression</li>
+            <li>Light music & classical curriculum</li>
+          </ul>
+        </div>
+        <div class="course-card">
+          <h3>Performance Program</h3>
+          <ul>
+            <li>Monthly showcases</li>
+            <li>Recording & mic techniques</li>
+            <li>Certificate of completion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <h2 style="text-align:center">Gallery</h2>
+      <div class="gallery" style="margin-top:12px">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="guitar student">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="piano">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="violin">
+        <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="drums">
+        <img src="https://images.unsplash.com/photo-1514851932350-13f2f5c11f12?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="vocals">
+        <img src="https://images.unsplash.com/photo-1526178615169-2f8f5ef6f2a3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="students performance">
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+      <h2 style="text-align:center">What Our Students Say</h2>
+      <div style="margin-top:12px" class="t-list">
+        <div class="t">
+          <strong>Akhil — Guitar</strong>
+          <p class="muted">"Amazing 1-on-1 lessons. I learned songs fast and performed confidently at my college fest."</p>
+        </div>
+        <div class="t">
+          <strong>Priya — Vocals</strong>
+          <p class="muted">"Structured lessons and helpful feedback. My voice improved in months."</p>
+        </div>
+        <div class="t">
+          <strong>Sai — Violin</strong>
+          <p class="muted">"Great technique coaching and recital prep — highly recommended."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div>
+        <h2>Contact & Enroll</h2>
+        <p class="muted">Book a free demo and we will match you with a teacher based on your goals and availability.</p>
+
+        <form action="mailto:vyas.musicacademy@gmail.com" method="post" enctype="text/plain" onsubmit="return confirm('This will open your email client to send the enrollment details.');">
+          <label for="name">Full name</label>
+          <input id="name" name="Name" required placeholder="Your full name">
+
+          <label for="email">Email</label>
+          <input id="email" name="Email" type="email" required placeholder="you@example.com">
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="Phone" required placeholder="+91 8XXXXXXXXX" value="8328662413">
+
+          <label for="course">Preferred course</label>
+          <select id="course" name="Course">
+            <option>Guitar</option>
+            <option>Piano</option>
+            <option>Violin</option>
+            <option>Drums</option>
+            <option>Sangeetham (Vocal)</option>
+          </select>
+
+          <label for="notes">Notes (goals, timing)</label>
+          <textarea id="notes" name="Notes" rows="4" placeholder="I want to learn..."></textarea>
+
+          <div style="display:flex;gap:10px;">
+            <button class="btn" type="submit">Send Enrollment Email</button>
+            <a class="btn-ghost" href="https://wa.me/918328662413" target="_blank">Message on WhatsApp</a>
+          </div>
+        </form>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Quick Info</h3>
+          <p class="muted">1-on-1 live lessons • Recorded sessions • Flexible scheduling • Certificates</p>
+          <hr style="border:none;border-top:1px solid rgba(0,0,0,0.04);margin:12px 0">
+          <p><strong>Call</strong><br><a href="tel:8328662413">8328662413</a></p>
+          <p><strong>Email</strong><br><a href="mailto:vyas.musicacademy@gmail.com">vyas.musicacademy@gmail.com</a></p>
+          <p><strong>Instagram</strong><br><a href="https://www.instagram.com/vyas.music_/" target="_blank">@vyas.music_</a></p>
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:18px;padding-bottom:28px">
+      <div>
+        <strong>Vyas Music Academy</strong><br>
+        <span class="muted">Online & 1-on-1 music lessons • Tirupati</span>
+      </div>
+      <div class="muted">© 2025 Vyas Music Academy • All rights reserved</div>
     </div>
-    <p>© 2025 Vyas Music Academy | All Rights Reserved</p>
   </footer>
+
+  <!-- small JS for smooth scroll and minor UX -->
+  <script>
+    // smooth scroll for local anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        if(id && id.length>1){
+          document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    // try autoplay background soft guitar (muted if blocked) - optional
+    (function(){
+      const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_4a1c94b5b2.mp3?filename=soft-guitar-background-112191.mp3');
+      audio.loop = true;
+      audio.volume = 0.08;
+      // attempt to play; some browsers block autoplay -- catch silently
+      audio.play().catch(()=>{ /* autoplay blocked */ });
+      // create small control in bottom-right
+      const ctrl = document.createElement('button');
+      ctrl.textContent = '🔈';
+      ctrl.title = 'Toggle background music';
+      Object.assign(ctrl.style,{position:'fixed',right:'18px',bottom:'18px',padding:'10px',borderRadius:'10px',border:'none',background:'#fff',color:'#333',cursor:'pointer',zIndex:2000});
+      document.body.appendChild(ctrl);
+      let playing = false;
+      ctrl.addEventListener('click',()=>{
+        if(playing){audio.pause();ctrl.textContent='🔈';playing=false}else{audio.play().catch(()=>{});ctrl.textContent='🔊';playing=true}
+      });
+    })();
+  </script>
 </body>
 </html>
