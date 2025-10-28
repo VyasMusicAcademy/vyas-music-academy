@@ -3,360 +3,177 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vyas Music Academy — Online 1:1 Guitar • Violin • Drums • Sangeetham</title>
-  <meta name="description" content="Vyas Music Academy — Modern online 1-on-1 music classes for Guitar, Violin, Drums and Sangeetham. Certified teachers, flexible timings, performance & recording support." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Vyas Music Academy | Learn Guitar, Violin, Drums & Sangeetham Online</title>
+  <meta name="description" content="Vyas Music Academy offers online 1-on-1 music lessons for Guitar, Violin, Drums, and Sangeetham. Join certified tutors and start your musical journey today!" />
+  <link rel="icon" href="https://raw.githubusercontent.com/yourusername/vyas-music-academy/main/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#0f172a" />
   <style>
-    :root{
-      --bg:#0f172a; /* deep navy */
-      --card:#0b1220;
-      --accent:#7c3aed; /* violet */
-      --accent-2:#06b6d4; /* aqua */
-      --muted:#94a3b8;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-      --max:1100px;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #0f172a, #0b1220);
+      color: #e6eef8;
+      overflow-x: hidden;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg),#071021);color:#e6eef8}
-    a{color:inherit}
-
-    /* layout */
-    .container{width:92%;max-width:var(--max);margin:0 auto}
-    header{position:sticky;top:12px;z-index:60;padding:18px 0}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.45)}
-    .logo strong{font-family:Outfit,Segoe UI, sans-serif;color:white;font-size:18px}
-    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;align-items:center}
-    nav a{font-weight:600;color:rgba(230,238,248,0.95);text-decoration:none}
-    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:12px;color:white;font-weight:700;box-shadow:0 8px 30px rgba(124,58,237,0.18)}
-
-    /* hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:56px 0}
-    .hero-left h1{font-family:Outfit,Inter, sans-serif;font-size:38px;line-height:1.02;margin:0 0 12px}
-    .eyebrow{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:6px 10px;border-radius:999px;font-weight:800;color:white;font-size:13px}
-    .hero p{color:var(--muted);margin:0 0 18px}
-
-    .features{display:flex;gap:12px;flex-wrap:wrap}
-    .pill{background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700;color:#dbeafe}
-
-    /* hero card */
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:18px;border-radius:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(2,6,23,0.6)}
-    .session{display:flex;gap:12px;align-items:center}
-    .avatar{width:60px;height:60px;border-radius:12px;background:linear-gradient(180deg,#fff3, #fff0);display:flex;align-items:center;justify-content:center;font-weight:800}
-    .price{font-size:18px;font-weight:800}
-
-    /* grid for offerings */
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
-    .offer{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
-    .offer h3{margin:0 0 8px}
-    .offer p{margin:0;color:var(--muted);font-size:14px}
-
-    /* why choose us */
-    .why{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:48px 0}
-    .why .list{display:grid;gap:12px}
-    .item{display:flex;gap:12px;align-items:flex-start}
-    .dot{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800}
-
-    /* testimonials */
-    .testimonials{padding:28px 0}
-    .t-cards{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
-    .t{min-width:260px;background:linear-gradient(180deg,#071029, #071021);padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
-
-    /* CTA strip */
-    .cta-strip{margin:34px 0;padding:20px;border-radius:14px;background:linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.06));display:flex;align-items:center;justify-content:space-between;gap:12px}
-
-    /* footer */
-    footer{padding:36px 0;border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
-    .socials{display:flex;gap:10px}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      nav ul{display:none}
-      header{padding:12px 0}
-      .grid{grid-template-columns:1fr}
-      .why{grid-template-columns:1fr}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(255, 255, 255, 0.02);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      z-index: 1000;
     }
-
-    /* small utilities */
-    .muted{color:var(--muted)}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:800;text-decoration:none}
-    input,textarea,select{background:#061021;border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:#e6eef8;width:100%}
-    label{font-weight:700;font-size:13px;margin-bottom:6px;display:block}
-
-    /* subtle animations */
-    .float{animation:floaty 6s ease-in-out infinite}
-    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: white;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #7c3aed;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #7c3aed, #06b6d4);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 8%;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      line-height: 1.1;
+    }
+    .hero-text p {
+      color: #94a3b8;
+      margin: 16px 0;
+      font-size: 16px;
+    }
+    .courses {
+      background: rgba(255,255,255,0.02);
+      padding: 60px 8%;
+    }
+    .courses h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .course {
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .course h3 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 14px;
+      color: #94a3b8;
+      background: rgba(255,255,255,0.02);
+    }
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        width: 90%;
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="nav">
-        <div class="brand">
-          <div class="logo"><strong>VM</strong></div>
-          <div>
-            <div style="font-weight:800">Vyas Music Academy</div>
-            <div style="font-size:12px;color:var(--muted)">Online 1-on-1 • Guitar • Violin • Drums • Sangeetham</div>
-          </div>
-        </div>
 
-        <nav>
-          <ul>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#why">Why Us</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+  <header>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/yourusername/vyas-music-academy/main/logo.png" width="40" height="40" alt="Vyas Music Academy Logo">
+      <span>Vyas Music Academy</span>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+    <a href="#enroll" class="btn-primary">Book Free Trial</a>
+  </header>
 
-        <div style="display:flex;gap:10px;align-items:center">
-          <a class="cta" href="#enroll">Book Trial</a>
-        </div>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Learn Music the Modern Way 🎶</h1>
+      <p>Join Vyas Music Academy — the ultimate destination for online 1-on-1 music lessons in <strong>Guitar, Violin, Drums,</strong> and <strong>Sangeetham</strong>. Learn from expert tutors with flexible timings and performance support.</p>
+      <a href="#enroll" class="btn-primary">Join Now</a>
+    </div>
+    <img src="https://raw.githubusercontent.com/yourusername/vyas-music-academy/main/music-hero.png" width="400" alt="Music Class Illustration" />
+  </section>
+
+  <section class="courses" id="courses">
+    <h2>🎵 Our Online 1-on-1 Courses</h2>
+    <div class="course-grid">
+      <div class="course">
+        <h3>🎸 Guitar</h3>
+        <p>From basic chords to advanced fingerstyle. Learn live with professionals and play your favorite songs.</p>
       </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <span class="eyebrow">New • Gen‑Z Friendly</span>
-        <h1>Learn music your way — <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">one-on-one</span> online sessions</h1>
-        <p class="muted">Private lessons for Guitar, Violin, Drums and Sangeetham. Certified tutors, flexible timings, performance-ready syllabus and short-term progress milestones.</p>
-
-        <div class="features" aria-hidden="true">
-          <div class="pill">🎸 1-on-1 Live Coaching</div>
-          <div class="pill">🕒 Flexible Timings</div>
-          <div class="pill">🎤 Performance Opportunities</div>
-          <div class="pill">📼 Session Recordings</div>
-        </div>
-
-        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
-          <a class="btn" href="#enroll">Book a Free Trial</a>
-          <a style="padding:10px 14px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.06);font-weight:700;text-decoration:none;color:#dbeafe" href="#courses">View Courses</a>
-        </div>
-
-        <div style="margin-top:18px;color:var(--muted);font-size:14px">Starting from <strong>₹499/session</strong> — custom plans available. <span style="color:var(--accent)">Scholarships & sibling discounts</span> for committed learners.</div>
-
+      <div class="course">
+        <h3>🎻 Violin</h3>
+        <p>Master bow control, ragas, and western notation through structured online sessions.</p>
       </div>
-
-      <aside class="card float" aria-hidden="true">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <div>
-            <div style="font-size:12px;color:var(--muted)">Upcoming Batch</div>
-            <div style="font-weight:800;font-size:18px">Weekend Stars • Nov 2025</div>
-          </div>
-          <div class="session">
-            <div class="avatar">VM</div>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="offer">
-            <h3>Guitar — Foundations to Performance</h3>
-            <p>Beginner to advanced: chords, technique, rhythm, and songplay. 1:1 mentoring and stage prep.</p>
-          </div>
-          <div class="offer">
-            <h3>Violin — Carnatic & Western</h3>
-            <p>Bow control, fingering, improvisation and notation. Structured syllabus & recital coaching.</p>
-          </div>
-          <div class="offer">
-            <h3>Drums — Groove & Technique</h3>
-            <p>Rudiments, grooves, fills, metronome training, and live performance coaching.</p>
-          </div>
-          <div class="offer">
-            <h3>Sangeetham — Vocal Mastery</h3>
-            <p>Breathwork, voice culture, gamakas, and verse/phrase building for classical & light music.</p>
-          </div>
-        </div>
-
-      </aside>
-    </section>
-
-    <!-- WHY US -->
-    <section id="why" class="why">
-      <div>
-        <h2>Why Vyas Music Academy?</h2>
-        <p class="muted">We blended modern learning methods with time-tested pedagogy so Gen‑Z learners can learn fast and stay inspired.</p>
-
-        <div class="list" style="margin-top:18px">
-          <div class="item">
-            <div class="dot">1</div>
-            <div>
-              <h4 style="margin:0">Certified & Experienced Tutors</h4>
-              <p class="muted">All teachers have performance experience and structured teaching methods — personalised to your goals.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="dot">2</div>
-            <div>
-              <h4 style="margin:0">1-on-1 Focus</h4>
-              <p class="muted">Personalised lesson plan, regular feedback, and progress milestones — not group generalities.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="dot">3</div>
-            <div>
-              <h4 style="margin:0">Performance & Recording Support</h4>
-              <p class="muted">We help students prepare for recitals, recordings, and social showcases — including remote mic tips.</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="dot">4</div>
-            <div>
-              <h4 style="margin:0">Flexible Scheduling</h4>
-              <p class="muted">Choose time slots that fit college/work. Make-up sessions & rescheduling available on notice.</p>
-            </div>
-          </div>
-        </div>
+      <div class="course">
+        <h3>🥁 Drums</h3>
+        <p>Groove like a pro! Learn rhythm patterns, fills, and performance-ready drumming techniques.</p>
       </div>
-
-      <div>
-        <h3>What each course includes</h3>
-        <ul style="margin-top:12px;color:var(--muted);line-height:1.6">
-          <li>• Detailed 8‑12 week syllabus (progress milestones)</li>
-          <li>• Weekly 30/45/60 minute 1:1 lessons</li>
-          <li>• Practice plans + backing tracks</li>
-          <li>• Session recordings (private access)</li>
-          <li>• Monthly student showcases & certificates</li>
-        </ul>
-
-        <div style="margin-top:16px;display:flex;gap:8px">
-          <a class="btn" href="#enroll">Get Free Trial</a>
-          <a class="pill" href="#contact">Talk to Advisor</a>
-        </div>
-
+      <div class="course">
+        <h3>🎤 Sangeetham (Vocal)</h3>
+        <p>Learn Carnatic & light music. Strengthen your voice and master gamakas with personal coaching.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="testimonials">
-      <h2>Student Stories</h2>
-      <div class="t-cards" aria-live="polite">
-        <article class="t">
-          <strong>Akshara — Beginner Guitar</strong>
-          <p class="muted" style="margin-top:8px">"Started with zero knowledge — after 8 lessons I performed my first song in a mini concert. Teacher gave me a clear plan and tons of confidence."</p>
-        </article>
+  <section id="contact" style="padding:60px 8%">
+    <h2 style="text-align:center;font-family:'Outfit',sans-serif;">📞 Contact & Enroll</h2>
+    <p style="text-align:center;color:#94a3b8;">Have questions or want to start your trial? Reach out now!</p>
+    <div style="text-align:center;margin-top:20px">
+      <p>Email: <a href="mailto:vyasmusicacademy@gmail.com" style="color:#7c3aed">vyasmusicacademy@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919429691421" style="color:#06b6d4">+91 9429691421</a></p>
+    </div>
+  </section>
 
-        <article class="t">
-          <strong>Sai — Violin Advanced</strong>
-          <p class="muted" style="margin-top:8px">"Great emphasis on technique and expression. The 1:1 training and recital coaching helped me win my college cultural solo competition."</p>
-        </article>
+  <footer>
+    <p>© 2025 Vyas Music Academy | Designed for Gen-Z Learners | Hosted on GitHub Pages</p>
+  </footer>
 
-        <article class="t">
-          <strong>Priya — Vocals (Sangeetham)</strong>
-          <p class="muted" style="margin-top:8px">"Breathing exercises and tailored warmups transformed my voice in 3 months. The teacher records the lessons so I never miss practice."</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- CTA STRIP -->
-    <section class="cta-strip">
-      <div>
-        <div style="font-weight:800">Ready to start?</div>
-        <div class="muted">Book a free 30-minute trial lesson and meet your teacher.</div>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <a class="btn" href="#enroll">Book Free Trial</a>
-        <a class="pill" href="#contact">Contact: +91 9429691421</a>
-      </div>
-    </section>
-
-    <!-- ENROLL / CONTACT -->
-    <section id="contact" style="padding:22px 0 60px;">
-      <div style="display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start">
-
-        <div>
-          <h2 id="enroll">Enroll & Contact</h2>
-          <p class="muted">Fill the form to request a free trial. We'll match you with a teacher and propose day/time options.</p>
-
-          <!-- Simple form using mailto for static hosting; replace action if you use Formspree or backend -->
-          <form id="enrollForm" action="mailto:vyasmusicacademy@gmail.com" method="post" enctype="text/plain" onsubmit="return confirm('This will open your email client to send the enrollment details.');">
-            <label for="name">Full name</label>
-            <input id="name" name="Name" required placeholder="Your full name">
-
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" required placeholder="you@example.com">
-
-            <label for="phone">Phone</label>
-            <input id="phone" name="Phone" required placeholder="+91 9XXXXXXXXX">
-
-            <label for="course">Preferred course</label>
-            <select id="course" name="Course">
-              <option>Guitar</option>
-              <option>Violin</option>
-              <option>Drums</option>
-              <option>Sangeetham (Vocal)</option>
-            </select>
-
-            <label for="notes">Notes (goals, timing, experience)</label>
-            <textarea id="notes" name="Notes" rows="4" placeholder="I want to learn..."></textarea>
-
-            <div style="margin-top:12px;display:flex;gap:10px">
-              <button class="btn" type="submit">Send Enrollment Email</button>
-              <button type="button" class="pill" onclick="copySupport()">Copy Contact</button>
-            </div>
-          </form>
-        </div>
-
-        <aside class="card" style="padding:18px">
-          <h3>Quick Info</h3>
-          <p class="muted">1-on-1 live online lessons, recorded sessions, certificates, recitals & affordable plans.</p>
-          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
-          <p style="margin:0"><strong>Contact</strong><br>📞 +91 9429691421<br>📧 vyasmusicacademy@gmail.com</p>
-          <p style="margin-top:12px"><strong>Studio Hours</strong><br class="muted">Mon–Sun • 8:00 AM — 9:00 PM IST</p>
-
-          <div style="margin-top:12px">
-            <div style="font-weight:800;margin-bottom:8px">Pricing (sample)</div>
-            <div class="muted">30 min — ₹499<br>45 min — ₹699<br>60 min — ₹999</div>
-          </div>
-
-          <div style="margin-top:14px" class="socials">
-            <a href="#" aria-label="Instagram">📸 Instagram</a>
-            <a href="#" aria-label="YouTube">▶️ YouTube</a>
-            <a href="#" aria-label="WhatsApp">💬 WhatsApp</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div>
-          <strong>Vyas Music Academy</strong><br>
-          <span class="muted">Online 1-on-1 coaching • Tirupati</span>
-        </div>
-        <div class="muted">© 2025 Vyas Music Academy • Designed for Gen‑Z learners</div>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    // small helpers
-    function copySupport(){
-      const text = 'Vyas Music Academy — Contact: +91 9429691421 | vyasmusicacademy@gmail.com';
-      navigator.clipboard?.writeText(text).then(()=>alert('Contact copied to clipboard!'))
-      .catch(()=>{ alert('Copy failed — please manually copy: ' + text) });
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          document.querySelector(href)?.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      })
-    })
-  </script>
 </body>
 </html>
-
