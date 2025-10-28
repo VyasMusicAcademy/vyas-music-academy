@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vyas Music Academy</title>
+  <title>Vyas Music Academy | Online Music Classes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    body { background: linear-gradient(to bottom right, #f7f7f7, #fdfdfd); color: #333; overflow-x: hidden; }
+    body { background: linear-gradient(to bottom right, #fffdf6, #fafafa); color: #333; overflow-x: hidden; }
 
     /* Top Bar */
     header {
       background: linear-gradient(90deg, #c9a43b, #e4d4a5);
       color: #fff;
-      padding: 15px 50px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
     }
-    header h1 { font-size: 1.5rem; font-weight: 600; color: #fff; }
+    header h1 { font-size: 1.4rem; font-weight: 600; color: #fff; }
     nav a {
-      margin: 0 15px;
+      margin: 0 12px;
       text-decoration: none;
       color: #fff;
       font-weight: 500;
@@ -38,16 +38,18 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
+      margin-left: 15px;
     }
 
     /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
-      padding: 120px 20px 80px;
-      background: linear-gradient(to bottom right, #fffbe6, #fafafa);
+      padding: 120px 20px 100px;
+      background: linear-gradient(to bottom right, #fffbe6, #f8f7f4);
+      overflow: hidden;
     }
-    .hero h2 { font-size: 2.2rem; color: #b7950b; margin-bottom: 15px; }
+    .hero h2 { font-size: 2.2rem; color: #b7950b; margin-bottom: 10px; }
     .hero p { font-size: 1.1rem; color: #555; margin-bottom: 25px; }
     .hero button {
       background: #c9a43b;
@@ -65,13 +67,15 @@
     .note {
       position: absolute;
       font-size: 2rem;
-      color: rgba(200, 160, 60, 0.15);
+      color: rgba(200, 160, 60, 0.25);
       animation: float 8s infinite ease-in-out;
+      user-select: none;
+      pointer-events: none;
     }
     @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(20deg); }
-      100% { transform: translateY(0) rotate(0deg); }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+      50% { transform: translateY(-40px) rotate(15deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
     }
 
     /* Courses */
@@ -87,9 +91,9 @@
     }
     .course-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
     }
     .course {
@@ -100,17 +104,17 @@
       transition: 0.4s;
     }
     .course:hover { transform: translateY(-5px); }
-    .course img { width: 100%; height: 220px; object-fit: cover; }
-    .course h3 { margin: 15px 0; color: #555; }
+    .course img { width: 100%; height: 180px; object-fit: cover; }
+    .course h3 { margin: 15px 0; color: #555; font-size: 1rem; }
 
     /* Contact */
     .contact {
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
       background: linear-gradient(to bottom, #fff, #f8f7f3);
     }
-    .contact h2 { color: #b7950b; font-size: 2rem; margin-bottom: 20px; }
-    .contact p { margin-bottom: 15px; }
+    .contact h2 { color: #b7950b; font-size: 2rem; margin-bottom: 15px; }
+    .contact p { margin-bottom: 10px; color: #444; font-size: 1rem; }
     .contact a { color: #b7950b; text-decoration: none; font-weight: 600; }
 
     /* Footer */
@@ -118,7 +122,7 @@
       background: #d4c6a5;
       color: #333;
       text-align: center;
-      padding: 25px 10px;
+      padding: 20px 10px;
       font-size: 0.9rem;
     }
 
@@ -134,47 +138,47 @@
     <h1>Vyas Music Academy</h1>
     <nav>
       <a href="#home">Home</a>
-      <a href="#about">About</a>
       <a href="#courses">Courses</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
       <a href="https://wa.me/918328662413" class="cta-btn" target="_blank">Join Now</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero" id="home">
-    <h2>Bringing Music to Life</h2>
-    <p>Online Guitar • Piano • Violin • Drums • Sangeetham Classes near every Vyas Music Academy</p>
-    <button onclick="window.location.href='https://wa.me/918328662413'">Book Your Free Demo</button>
+    <h2>Learn Music Online with Vyas Music Academy</h2>
+    <p>Online Guitar • Piano • Violin • Drums • Sangeetham Classes near you</p>
+    <button onclick="window.location.href='https://wa.me/918328662413'">Book Free Demo</button>
 
-    <div class="note" style="left:10%; top:40%;">♪</div>
-    <div class="note" style="left:80%; top:50%;">♫</div>
-    <div class="note" style="left:50%; top:20%;">♩</div>
-    <div class="note" style="left:30%; top:70%;">♬</div>
+    <!-- Floating Musical Notes -->
+    <div class="note" style="left:8%; top:40%;">♪</div>
+    <div class="note" style="left:25%; top:60%; animation-delay:1s;">♫</div>
+    <div class="note" style="left:45%; top:20%; animation-delay:2s;">♩</div>
+    <div class="note" style="left:70%; top:45%; animation-delay:3s;">♬</div>
+    <div class="note" style="left:85%; top:65%; animation-delay:4s;">♪</div>
   </section>
 
   <section class="courses" id="courses">
-    <h2>Our Courses</h2>
+    <h2>Our Online Courses</h2>
     <div class="course-grid">
       <div class="course">
         <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80" alt="Guitar">
-        <h3>Guitar Classes</h3>
+        <h3>Online Guitar Classes</h3>
       </div>
       <div class="course">
         <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=800&q=80" alt="Piano">
-        <h3>Piano Classes</h3>
+        <h3>Online Piano Classes</h3>
       </div>
       <div class="course">
         <img src="https://images.unsplash.com/photo-1507835661088-ac08f07b0552?auto=format&fit=crop&w=800&q=80" alt="Violin">
-        <h3>Violin Classes</h3>
+        <h3>Online Violin Classes</h3>
       </div>
       <div class="course">
         <img src="https://images.unsplash.com/photo-1611606063064-42cc415b7c9a?auto=format&fit=crop&w=800&q=80" alt="Drums">
-        <h3>Drums Classes</h3>
+        <h3>Online Drums Classes</h3>
       </div>
       <div class="course">
         <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Sangeetham">
-        <h3>Sangeetham Classes</h3>
+        <h3>Online Sangeetham Classes</h3>
       </div>
     </div>
   </section>
@@ -187,7 +191,7 @@
   </section>
 
   <footer>
-    © 2025 Vyas Music Academy | Designed with ❤️ to Inspire Music
+    © 2025 Vyas Music Academy | Online Music Classes | Designed with 🎵
   </footer>
 </body>
 </html>
